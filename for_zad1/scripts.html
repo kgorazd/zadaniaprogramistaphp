@@ -3,11 +3,13 @@
 <script>
     $(document).ready(function() {
     initCanvas("myCanvas");
+    $('input').on('change',function(e){
+      initCanvas("myCanvas");
+    });
     $('.line').on('change',function(e){
       if( parseInt(e.currentTarget.value)===0 ){
         e.currentTarget.value=1;
       }
-      initCanvas("myCanvas");
     });
   });
 </script>
