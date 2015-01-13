@@ -3,8 +3,8 @@
   require_once('for_zad2/xml_saver.php');
   require_once('common/common.php');
   require_once('for_zad2/save_to_file.php');
-  require_once('for_zad2/forecast_api.php');
-  require_once('for_zad2/weather_api.php');
-  require_once('for_zad2/api_helper.php');
-  require_once('for_zad2/zadanie2_lib.php');
+  require_once('for_zad2/api/forecast_api.php');
+  require_once('for_zad2/api/weather_api.php');
+  require_once('for_zad2/api/api_helper.php');
+  require_once('for_zad2/view_helper.php');
 ?>

@@ -4,6 +4,9 @@ class WeatherApi {
   private static $base_url = "http://api.openweathermap.org/data/2.5/find?q=";
   
   private static function parse_weather($json_weather) {
+    if(count($json_weather->list)==0) {
+      return null;
+    }
     $result=[];
     $result['name']=$json_weather->list[0]->name;
     $result['temp']=$json_weather->list[0]->main->temp;
@@ -26,7 +29,10 @@ class WeatherApi {
   public static function get_weather_for_city_names(Array $city_names) {
     $result = [];
     foreach($city_names as $city_name) {
-      array_push($result, WeatherApi::get_weather($city_name));
+      $weather = WeatherApi::get_weather($city_name);
+      if($weather!=null) {
+        array_push($result, $weather);
+      }
     }
     return $result;
   }

@@ -14,13 +14,17 @@ class Line {
   public static function create_from_array($array) {
     return new Line($array['a'], $array['b'], $array['c']);
   }
+  
+  private function slope() {
+    return $this->b/$this->a;
+  }
 
 	public function is_perpendicular(Line $other_line) {
-    return $this->a*$other_line->a==-1;
+    return $this->slope()*$other_line->slope()==-1;
   }
 
 	public function is_parallel(Line $other_line) {
-		return $this->a==$other_line->a;
+    return $this->slope()==$other_line->slope();
   }
 
 }

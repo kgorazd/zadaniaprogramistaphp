@@ -17,7 +17,6 @@ class ApiHelper {
   public static function get_response($url) {
 //     $response = file_get_contents($url);
     $response = ApiHelper::get_curl_response($url);
-    //   jak mozesz to zrob curla bo mam czasem request failed
     return $response;
   }
   

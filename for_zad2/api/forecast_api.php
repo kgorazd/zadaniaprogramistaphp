@@ -8,13 +8,19 @@ class ForecastApi {
   public static function get_forecast($city_name='London') {
     $url = ForecastApi::$base_url_prefix.$city_name.ForecastApi::$base_url_suffix;
     $response = ApiHelper::get_decoded_response($url);
+    if($response->cod=='404') {
+      return null;
+    }
     return $response;
   }
 
   public static function get_forecast_array($city_names) {
     $result = [];
     foreach($city_names as $city_name) {
-      array_push($result, ForecastApi::get_forecast($city_name));
+      $forecast = ForecastApi::get_forecast($city_name);
+      if($forecast) {
+        array_push($result, $forecast);
+      }
     }
     return $result;
   }
