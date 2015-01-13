@@ -2,6 +2,7 @@
   function initCanvas(canvasId) {
     var c = document.getElementById(canvasId);
     ctx = c.getContext("2d");
+    ctx.clearRect ( 0 , 0 , c.width, c.height );
     draw_plots();
     drawLineFromForm('line[0]');
     drawLineFromForm('line[1]');
