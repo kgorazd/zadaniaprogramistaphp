@@ -1,0 +1,59 @@
+<script>
+  var f = function(a, b, c, x) {
+    var res = -a*x-c;
+    b = b==0 ? 1 : b;
+    res /= b;
+    return res;
+  }
+  
+  var draw_plots = function() {
+    draw_plot('x', 0, 100, 200, 100, 170, 95);
+    draw_plot('y', 100, 0, 100, 200, 105, 10);
+  }
+  
+  var draw_eq=function(a,b,c) {
+    draw_best_line(-1000, f(a,b,c,-1000), 1000, f(a,b,c,1000));
+  }
+  
+  var draw_plot = function(name, mtX, mtY, ltX, ltY, nameX, nameY) {
+    ctx.beginPath();
+    ctx.moveTo(mtX, mtY);
+    ctx.lineTo(ltX, ltY);
+    ctx.strokeStyle = '#00FF00';
+    ctx.stroke();
+    ctx.fillText(name, nameX, nameY);
+    ctx.fillText(200, nameX+10, nameY);
+    ctx.strokeStyle = '#000000';
+  }
+  
+  var draw_dumb_line = function(mtX, mtY, ltX, ltY) {
+    ctx.beginPath();
+    ctx.moveTo(mtX, mtY);
+    ctx.lineTo(ltX, ltY);
+    ctx.strokeStyle = '#000000';
+    ctx.stroke();
+    ctx.strokeStyle = '#000000';
+  }
+  
+//   inverted
+  var draw_better_line = function(mtX, mtY, ltX, ltY) {
+    draw_dumb_line(mtX, 200-mtY, ltX, 200-ltY)
+  }
+  
+//   centered
+  var draw_best_line = function(mtX, mtY, ltX, ltY) {
+    draw_better_line(100+mtX, mtY+100, 100+ltX, ltY+100)
+  }
+  
+  var tX = function(x) {
+    return 100+x;
+  }
+  
+  var tY = function(y) {
+    return 200-y-100;
+  }
+  
+  var draw_point = function(x, y, size) {
+    ctx.fillRect(tX(x-size/2),tY(y+size/2),size,size);
+  }
+</script>

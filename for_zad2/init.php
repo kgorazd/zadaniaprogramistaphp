@@ -1,0 +1,10 @@
+<?php
+  date_default_timezone_set('UTC');
+  require_once('for_zad2/xml_saver.php');
+  require_once('common/common.php');
+  require_once('for_zad2/save_to_file.php');
+  require_once('for_zad2/forecast_api.php');
+  require_once('for_zad2/weather_api.php');
+  require_once('for_zad2/api_helper.php');
+  require_once('for_zad2/zadanie2_lib.php');
+?>
